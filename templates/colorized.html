@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processed Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+    <!-- <div class="box3">
+    <img class ="logo" src="\static\logo.jpg"> -->
+    <div class="box2">
+    <img class ="logo_c" id="logo_c" src="\static\logo.jpg">
+    <div class="Original">
+    <div class="Original_h">
+    <h1>Original Image</h1>
+    </div>
+    <img src="data:image/png;base64,{{ bwimg_data }}" alt="Original Image" style="max-width: 100%; height: auto;">
+    <br>
+    </div>
+    <div class="Processed">
+    <div class="Processed_h1">
+    <h1>Processed Image</h1>
+    </div>
+    <img src="data:image/png;base64,{{ img_data }}" alt="Processed Image" style="max-width: 100%; height: auto;">
+    <button class= "download" id ="downdload" autofocus>Download</button>
+    <a href="data:image/png;base64,{{img_data }}"  style="display : none" download="colorized_image.png" class="download-button">Download Colorized</a>
+    <br>
+    </div>
+    </div>
+    <!-- </div> -->
+    <a href="/" class="Upload_Another_Image" style="font-weight: bold;">Upload Another Image</a>
+    <script>
+        document.getElementById("downdload").addEventListener('click' , ()=>{
+
+        const link = document.createElement('a');
+        link.href = 'data:image/png;base64,{{img_data }}'; 
+        link.download = 'colorized_image.png'; 
+        link.click();
+
+        })
+        document.getElementById("logo_c").addEventListener('click' , ()=>{
+
+        const link = document.createElement('a');
+        link.href = '/';  
+        link.click();
+
+        })
+
+
+    </script>
+</body>
+</html>
