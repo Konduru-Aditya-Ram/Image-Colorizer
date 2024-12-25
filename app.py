@@ -112,7 +112,7 @@ def col():
 
  
     model = tf.keras.models.load_model(
-       r'.\static\styles\Image colorizer.keras',
+       r'.\static\styles\Image_colorizer.keras',
         custom_objects={'mse': mse},
         compile=True
     )
